@@ -7,7 +7,7 @@ public class Round : Shape
 
     void Update()
     {
-        if (isOnGround)
+        if (IsOnGround)
         {
             Move(-this.transform.position + new Vector3(0,0.5f,0));
         }

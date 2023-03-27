@@ -4,9 +4,10 @@ using UnityEngine;
 
 public abstract class Shape : MonoBehaviour
 {
-    private Rigidbody shapeRb;
-    public float speed = 0.1f;
-    public bool isOnGround = false;
+    public Rigidbody shapeRb;
+    public float speed = 0.0001f;
+    public float jumpMult = 0.05f;
+    private bool isOnGround = false;
 
     void Start()
     {
@@ -17,7 +18,7 @@ public abstract class Shape : MonoBehaviour
     {
 
     }
-
+    //encapsulation
     public bool IsOnGround
     {
         get
@@ -26,7 +27,7 @@ public abstract class Shape : MonoBehaviour
         }
         set
         {
-            isOnGround = IsOnGround;
+            isOnGround = value;
         }
     }
 
@@ -39,12 +40,17 @@ public abstract class Shape : MonoBehaviour
     {
         shapeRb.AddForce((gameObject.transform.position - transform.position) * speed);
     }
+    public virtual void Jump()
+    {
+        shapeRb.AddForce(Vector3.up * jumpMult);
+        IsOnGround = false;
+    }
 
     public virtual void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            isOnGround = true;
+            IsOnGround = true;
         }
 
     }

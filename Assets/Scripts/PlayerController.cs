@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody playerRb;
     public float speed = 10f;
-    public float jump = 200f;
+    public float jumpMult = 500f;
     private GameObject player;
     private Shape playerShape;
     // Start is called before the first frame update
@@ -21,8 +21,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (playerShape.isOnGround)
+        if (playerShape.IsOnGround)
         {
             float verticalInput = Input.GetAxis("Vertical");
             float hrizontalInput = Input.GetAxis("Horizontal");
@@ -30,8 +29,8 @@ public class PlayerController : MonoBehaviour
             playerRb.AddForce(transform.right * speed * -verticalInput);
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                playerRb.AddForce(transform.up * jump);
-                playerShape.isOnGround = false;
+                playerRb.AddForce(transform.up * jumpMult);
+                playerShape.IsOnGround = false;
             }
         }
     }

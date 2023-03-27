@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Square : Shape //inheritance
+public class Capsule : Shape //inheritance
 {
     private GameObject player;
     void Start()
@@ -15,7 +15,7 @@ public class Square : Shape //inheritance
     {
         if (IsOnGround)
         {
-            Move(player);
+            Jump();
         }
     }
 }

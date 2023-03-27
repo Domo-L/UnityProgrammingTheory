@@ -111,9 +111,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48c5dcd2c79a3e145ad1d643fd0cc6a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shapeRb: {fileID: 0}
   speed: 5
-  TintRenderer: {fileID: 0}
-  TintMaterialSlot: 0
+  jumpMult: 200
 --- !u!54 &8717539998770663164
 Rigidbody:
   m_ObjectHideFlags: 0
